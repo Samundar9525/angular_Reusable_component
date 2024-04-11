@@ -31,7 +31,7 @@
   </div>
 
   <div class="card-container" *ngIf="currentComponent[0]?.id == 4">
-    <div class="card" *ngFor="let i of snackbarCard">
+    <div class="snackbar-card" *ngFor="let i of snackbarCard">
       <mat-card (click)="cardClickedSnackbar(i.index)">
         <mat-card-content>{{ i.name }}</mat-card-content>
       </mat-card>
@@ -45,7 +45,7 @@
       ></app-snackbar>
     </ng-container>
     <div class="wd100">
-      <h2 >Current theme : {{successStatus?'Sucess Snackbar':'Error Snackbar'}}</h2>
+      <h2 style="color: white;">Current theme : {{successStatus?'Sucess Snackbar':'Error Snackbar'}}</h2>
       <h2 style="text-align: center; padding-top: 50px; color: red; font-weight: 700;">Note: Always create snackbar in shared services and bind with single function call</h2>
      <div class="flex">
       <button class="wd40 pdr20" mat-flat-button color="primary" (click)="(this.successStatus = true)">Sucess Snackbar</button>
