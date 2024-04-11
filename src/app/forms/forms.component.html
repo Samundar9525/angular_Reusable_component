@@ -1,0 +1,97 @@
+<div class="form-container dialog-container">
+
+  <div class="dialog-container">
+    <div class="dialog-header">
+      <div class="dialog-header-text" mat-dialog-title>
+        {{ data?.headerTitle }}
+      </div>
+      <div class="dialog-close">
+        <mat-icon mat-dialog-close class="close-icon">close</mat-icon>
+      </div>
+    </div>
+
+  <!-- single column form -->
+  <mat-dialog-content *ngIf="data?.singleColumn" class="single-col">
+    <form [formGroup]="formData">
+      <mat-form-field class="full-width" *ngFor="let fdata of data?.fieldName | keyvalue: keepOrder; let i = index">
+        <mat-label>{{fdata.key}}</mat-label>
+        <input matInput formControlName={{fdata.key}} name=''/>
+        <mat-error *ngIf="formData?.controls?.[''+fdata.key]?.errors?.['required']">
+          This field is Required !
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+
+  <!-- Double column form -->
+  <mat-dialog-content *ngIf="data?.doubleColumn" class="double-col">
+    <form [formGroup]="formData">
+      <mat-form-field class="full-width" *ngFor="let fdata of data?.fieldName | keyvalue: keepOrder; let i = index">
+        <mat-label>{{fdata.key}}</mat-label>
+        <input matInput formControlName={{fdata.key}} name=''/>
+        <mat-error *ngIf="formData?.controls?.[''+fdata.key]?.errors?.['required']">
+          This field is Required !
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+
+    <!-- triple column form -->
+    <mat-dialog-content *ngIf="data?.tripleColumn" class="triple-col">
+      <form [formGroup]="formData">
+        <mat-form-field class="full-width" *ngFor="let fdata of data?.fieldName | keyvalue: keepOrder; let i = index">
+          <mat-label>{{fdata.key}}</mat-label>
+          <input matInput formControlName={{fdata.key}} name=''/>
+          <mat-error *ngIf="formData?.controls?.[''+fdata.key]?.errors?.['required']">
+            This field is Required !
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+
+    <!-- form with option select-->
+    <mat-dialog-content *ngIf="data?.optionfield" class="option-select">
+      <form [formGroup]="formData">
+        <mat-form-field class="full-width" *ngFor="let fdata of data?.fieldName | keyvalue: keepOrder">
+          <mat-label>{{fdata.key}}</mat-label>
+          <input matInput formControlName={{fdata.key}} name='' [matAutocomplete]="optionSelected"/>
+          <mat-autocomplete #optionSelected>
+            <mat-option *ngFor="let option of data?.options[''+fdata.key]" [value]="option">
+           {{ option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+
+    <!-- form with multiple option select-->
+    <mat-dialog-content *ngIf="data?.multipleOptionfield" class="option-select">
+      <form [formGroup]="formData">
+        <mat-form-field class="full-width" *ngFor="let fdata of data?.fieldName | keyvalue: keepOrder">
+          <mat-label>{{fdata.key}}</mat-label>
+          <mat-select multiple #optionList>
+            <mat-option *ngFor="let option of data?.options[''+fdata.key]" [value]="option" (click)="optionSelected(fdata.key,optionList.value)">
+                  {{ option}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+
+  <div class="dialog-footer">
+    <mat-dialog-actions align="end">
+      <button mat-raised-button color="warning" mat-dialog-close>
+        {{ data?.nText || "Cancel" }}
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+        (click)="dialogSubmit()"
+      >
+        {{ data?.pText || "Ok" }}
+      </button>
+    </mat-dialog-actions>
+  </div>
+</div>

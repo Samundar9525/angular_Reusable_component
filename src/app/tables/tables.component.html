@@ -1,0 +1,165 @@
+<div class="table-container">
+
+<div class="title">
+  {{data.headerTitle}}
+</div>
+<div class="search-bar" *ngIf="data?.searchField">
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input >
+  </mat-form-field>
+</div>
+
+<div class="table1" *ngIf="data?.table1">
+  <table mat-table class="mat-elevation-z8" [dataSource]="data?.dataSource.details">
+    <ng-container *ngFor="let rowData of data.dataSource.columnDetails">
+      <ng-container  matColumnDef={{rowData}}>
+        <th mat-header-cell *matHeaderCellDef>{{rowData  | titlecase }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[rowData]}} </td>
+      </ng-container>
+    </ng-container>
+  <tr mat-header-row class="header-row" *matHeaderRowDef="data.dataSource.columnDetails"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.dataSource.columnDetails;"></tr>
+  </table>
+</div>
+
+<div class="table1" *ngIf="data?.table2">
+  <table mat-table class="mat-elevation-z8" [dataSource]="data?.dataSource.details">
+    <ng-container *ngFor="let rowData of data.dataSource.columnDetails">
+      <ng-container  matColumnDef={{rowData}}>
+        <th mat-header-cell *matHeaderCellDef>{{rowData  | titlecase }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[rowData]}} </td>
+      </ng-container>
+    </ng-container>
+  <tr class="header-row" mat-header-row *matHeaderRowDef="data.dataSource.columnDetails; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.dataSource.columnDetails;"></tr>
+  </table>
+</div>
+
+
+<div class="table1" *ngIf="data?.table3">
+  <table mat-table class="mat-elevation-z8" [dataSource]="data?.dataSource.details">
+    <ng-container *ngFor="let rowData of data.dataSource.columnDetails">
+      <ng-container  matColumnDef={{rowData}}>
+        <th mat-header-cell *matHeaderCellDef>{{rowData  | titlecase }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[rowData]}} </td>
+        <ng-container *ngIf="rowData !=='salary'">
+          <td mat-footer-cell *matFooterCellDef class="header-row"> {{rowData ==='id'?'Total':''}} </td>
+        </ng-container>
+        <ng-container *ngIf="rowData ==='salary'">
+          <td mat-footer-cell *matFooterCellDef class="header-row" > Rs. {{totalSalary}}/- </td>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  <tr class="header-row" mat-header-row *matHeaderRowDef="data.dataSource.columnDetails; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.dataSource.columnDetails;"></tr>
+  <tr mat-footer-row *matFooterRowDef="data.dataSource.columnDetails; sticky: true"></tr>
+</table>
+</div>
+
+
+<div class="table1" *ngIf="data?.table4">
+  <table mat-table class="mat-elevation-z8" [dataSource]="data?.dataSource.details">
+    <ng-container *ngFor="let rowData of data.dataSource.columnDetails">
+      <ng-container  matColumnDef={{rowData}}>
+        <th mat-header-cell *matHeaderCellDef>{{rowData  | titlecase }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[rowData]}} </td>
+      </ng-container>
+    </ng-container>
+  <tr class="header-row" mat-header-row *matHeaderRowDef="data.dataSource.columnDetails; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.dataSource.columnDetails;"></tr>
+</table>
+  <mat-paginator [pageSizeOptions]="[10,15 ,20]"
+      showFirstLastButtons>
+  </mat-paginator>
+</div>
+
+
+<div class="table1" *ngIf="data?.table5">
+  <table mat-table class="mat-elevation-z8" [dataSource]="data?.dataSource.details">
+    <ng-container *ngFor="let rowData of data.dataSource.columnDetails">
+      <ng-container  matColumnDef={{rowData}}>
+        <th mat-header-cell *matHeaderCellDef>{{rowData  | titlecase }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[rowData]}} </td>
+      </ng-container>
+    </ng-container>
+  <tr class="header-row" mat-header-row *matHeaderRowDef="data.dataSource.columnDetails; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.dataSource.columnDetails;"></tr>
+</table>
+  <mat-paginator [pageSizeOptions]="[10,15 ,20]"
+      showFirstLastButtons>
+  </mat-paginator>
+</div>
+
+
+<div class="table1" *ngIf="data?.table6">
+  <table mat-table class="mat-elevation-z8" [dataSource]="data?.dataSource.details" matSort (matSortChange)="announceSortChange($event)">
+    <ng-container *ngFor="let rowData of data.dataSource.columnDetails">
+      <ng-container  matColumnDef={{rowData}}>
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header sortActionDescription="Sort by rowData">{{rowData  | titlecase }} </th>
+        <td mat-cell *matCellDef="let element"> {{element[rowData]}} </td>
+      </ng-container>
+    </ng-container>
+  <tr class="header-row" mat-header-row *matHeaderRowDef="data.dataSource.columnDetails; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.dataSource.columnDetails;"></tr>
+  </table>
+</div>
+
+
+<div class="table1" *ngIf="data?.table7">
+  <table mat-table class="mat-elevation-z8" [dataSource]="data?.dataSource.details">
+    <ng-container *ngFor="let rowData of data.dataSource.columnDetails">
+      <ng-container  matColumnDef={{rowData}}>
+        <th mat-header-cell *matHeaderCellDef>{{rowData  | titlecase }} </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="$event.stopPropagation()" *ngIf="rowData === 'id'"
+                (change)="$event ? selection.toggle(element) : null"
+                [checked]="selection.isSelected(element)"
+                [aria-label]="checkboxLabel(element)">
+            </mat-checkbox> {{element[rowData]}} </td>
+      </ng-container>
+    </ng-container>
+  <tr class="header-row" mat-header-row *matHeaderRowDef="data.dataSource.columnDetails; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.dataSource.columnDetails;"  (click)="selection.toggle(row)"  ></tr>
+  </table>
+</div>
+
+<div class="table1" *ngIf="data?.table8">
+  <table mat-table class="mat-elevation-z8" [dataSource]="data?.dataSource.details" multiTemplateDataRows>
+    <ng-container *ngFor="let rowData of data.dataSource.columnDetails">
+      <ng-container  matColumnDef={{rowData}}>
+        <th mat-header-cell *matHeaderCellDef>{{rowData !== 'expand' ? (rowData | titlecase) :'Action'  }} </th>
+        <td mat-cell *matCellDef="let element" (click)="toggleCard($event,element);$event.stopPropagation()">
+          <ng-container *ngIf="rowData !=='expand'">
+            {{element[rowData]}}
+          </ng-container>
+          <ng-container *ngIf="rowData ==='expand'">
+           <button mat-icon-button aria-label="expand row">
+            <mat-icon>{{element?.isExpanded?'keyboard_arrow_up':'keyboard_arrow_down'}}</mat-icon>
+           </button>
+          </ng-container>
+        </td>
+      </ng-container>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="data.dataSource.columnDetails.length">
+        <!-- customise your accordion templete here  -->
+        <ng-container *ngIf="element?.isExpanded">
+          <div class="example-element-detail">
+                Mr/Mrs . {{element?.name}} of {{element?.city}} is our employee and his/her salary is {{element.salary}}.
+                For any query please contact on this number {{element.phone}}
+          </div>
+        </ng-container>
+        <!-- ------------------------ -->
+      </td>
+    </ng-container>
+  <tr class="header-row" mat-header-row *matHeaderRowDef="data.dataSource.columnDetails; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: data.dataSource.columnDetails;"  (click)="selection.toggle(row)"  ></tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
+</div>
+
+
+</div>
+<button (click)="dialogSubmit()" *ngIf="data?.submitEnabled" class="submit-button"> SUBMIT</button>

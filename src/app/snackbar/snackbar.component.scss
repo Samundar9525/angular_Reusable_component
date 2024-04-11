@@ -1,0 +1,12 @@
+::ng-deep .mat-mdc-snack-bar-container {
+  &.error-msg{
+    --mdc-snackbar-container-color: rgba(255, 251, 251, 0.986) !important;
+    --mat-snack-bar-button-color: blue !important;
+    --mdc-snackbar-supporting-text-color: red !important;
+  }
+  &.success-msg {
+    --mdc-snackbar-container-color: rgba(255, 251, 251, 0.986) !important;
+    --mat-snack-bar-button-color: blue !important;
+    --mdc-snackbar-supporting-text-color: green !important;
+  }
+}

@@ -1,0 +1,26 @@
+<header class="header">
+  <ul class="nav">
+    <li><a href="#about">Portfolio</a></li>
+    <li><a href="#learning">Learning</a></li>
+    <li><a href="#about">Contact</a></li>
+  </ul>
+</header>
+
+<section class="home-section">
+  <img src="../../assets/stars.png" alt="Stars overlay" id="stars">
+  <img src="../../assets/moon.png" alt="Moon" id="moon">
+  <img src="../../assets/mountains_back.png" alt="Mountains back" id="mountains_back">
+  <img src="../../assets/mountains_front.png" alt="Mountains front" id="mountains_front">
+</section>
+
+<section class="about-section" id="learning">
+<h3>Reusable Components</h3>
+  <div class="card-container">
+    <div class="cards-overlay" *ngFor="let i of cards">
+      <mat-card (click)="cardClicked(i)">
+        <mat-card-content>{{i.name}}</mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
