@@ -1,8 +1,13 @@
+
+<div class="background-container">
+  <div class="background-image"></div>
+</div>
+
 <ng-container *ngIf="true">
   <header>Reusable Angular Components - {{ currentComponent[0]['name'] }}</header>
 
   <div class="card-container" *ngIf="currentComponent[0]?.id == 1">
-    <div class="dialog-cards" *ngFor="let i of DialogCards">
+    <div class="cards" *ngFor="let i of DialogCards">
       <mat-card (click)="cardClickedDialog(i.index)">
         <mat-card-content>{{ i.name }}</mat-card-content>
       </mat-card>
@@ -10,7 +15,7 @@
   </div>
 
   <div class="card-container" *ngIf="currentComponent[0]?.id == 2">
-    <div class="form-cards" *ngFor="let i of formsCards">
+    <div class="cards" *ngFor="let i of formsCards">
       <mat-card (click)="cardClickedForms(i.index)">
         <mat-card-content>{{ i.name }}</mat-card-content>
       </mat-card>
@@ -18,7 +23,7 @@
   </div>
 
   <div class="card-container" *ngIf="currentComponent[0]?.id == 3">
-    <div class="table-cards" *ngFor="let i of tableCards">
+    <div class="cards" *ngFor="let i of tableCards">
       <mat-card (click)="cardClickedTables(i.index)">
         <mat-card-content>{{ i.name }}</mat-card-content>
       </mat-card>
@@ -26,7 +31,7 @@
   </div>
 
   <div class="card-container" *ngIf="currentComponent[0]?.id == 4">
-    <div class="snacbar-card" *ngFor="let i of snackbarCard">
+    <div class="card" *ngFor="let i of snackbarCard">
       <mat-card (click)="cardClickedSnackbar(i.index)">
         <mat-card-content>{{ i.name }}</mat-card-content>
       </mat-card>
@@ -50,7 +55,7 @@
   </div>
 
   <div class="card-container" *ngIf="currentComponent[0]?.id == 5">
-    <div class="chart-cards" *ngFor="let i of chartCards">
+    <div class="cards" *ngFor="let i of chartCards">
       <mat-card (click)="cardClickedCharts(i.index)">
         <mat-card-content>{{ i.name }}</mat-card-content>
       </mat-card>
