@@ -31,6 +31,7 @@ export class TablesComponent implements AfterViewInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
+    console.log( this.data.dataSource.details)
     this.data.dataSource.details.filter = filterValue.trim().toLowerCase();
   }
 
