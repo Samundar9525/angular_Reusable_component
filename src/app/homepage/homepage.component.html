@@ -1,27 +1,35 @@
 <header class="header">
   <ul class="nav">
-    <li><a href="#about">Portfolio</a></li>
+    <li><a href="#about" >Portfolio</a></li>
     <li><a href="#learning">Learning</a></li>
     <li><a href="#Contact">Contact</a></li>
     <li><a href="#about">About</a></li>
   </ul>
 </header>
 
-<section class="home-section">
-  <img src="../../assets/stars.png" id="stars">
-  <img src="../../assets/moon.png"  id="moon">
-  <img src="../../assets/mountains_back.png" id="mountains_back">
-  <img src="../../assets/mountains_front.png" id="mountains_front">
-</section>
+<div class="background-container">
+  <div class="background-image"></div>
+</div>
 
-<section class="about-section" id="learning">
-<h3>Reusable Components</h3>
-  <div class="card-container">
-    <div class="cards-overlay" *ngFor="let i of cards">
-      <mat-card (click)="cardClicked(i)">
-        <mat-card-content>{{i.name}}</mat-card-content>
-      </mat-card>
-    </div>
+<div class="body-container">
+  <div class="homepage-title-message">
+    Angular Learning
   </div>
-</section>
 
+  <!-- <section class="home-section">
+    <img src="../../assets/stars.png" id="stars">
+    <img src="../../assets/moon.png"  id="moon">
+    <img src="../../assets/mountains_back.png" id="mountains_back">
+    <img src="../../assets/mountains_front.png" id="mountains_front">
+  </section> -->
+
+  <h3>Reusable Components</h3>
+    <div class="card-container">
+      <div class="cards-overlay" *ngFor="let i of cards">
+        <mat-card (click)="cardClicked(i)">
+          <mat-card-content>{{i.name}}</mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+</div>

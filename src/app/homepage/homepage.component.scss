@@ -265,3 +265,17 @@ footer .social a:hover {
     transform: scale(1.1);
   }
 }
+
+.body-container{
+  display: flex;
+  flex-direction: column;
+  height: 74%;
+  justify-content: flex-end;
+}
+
+
+.homepage-title-message{
+  color: white;
+  font-size: 100px;
+  text-align: center;
+}
