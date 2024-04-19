@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+
 html,
 body {
   height: 100%;
@@ -111,5 +113,17 @@ body {
   }
   100% {
       transform: translateX(-50%);
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 380px)  {
+  meta[name='viewport'] {
+    content: 'width=device-width, initial-scale=0.4';
+  }
+}
+
+@media screen and (min-width: 381px) and (max-width: 720px)  {
+  meta[name='viewport'] {
+    content: 'width=device-width, initial-scale=0.5';
   }
 }
