@@ -105,6 +105,7 @@ body {
   background-image:  url('../src/assets/stars.png');
   background-repeat: repeat-x;
   animation: moveBackground 50s linear infinite;
+  background-size: cover;
 }
 
 @keyframes moveBackground {

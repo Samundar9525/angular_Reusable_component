@@ -278,4 +278,87 @@ footer .social a:hover {
   color: white;
   font-size: 100px;
   text-align: center;
+  padding-bottom: 30px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 380px)  {
+  .body-container{
+    height: 100%;
+    justify-content: center;
+  }
+
+  .card-container{
+    display: flex;
+    padding: 30px 50px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    .cards-overlay{
+      overflow: hidden;
+      transition: transform 0.3s ease-in-out;
+      width: 575px;
+      height: 150px;
+      padding: 13px 13px;
+      mat-card{
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #1c0522);
+        background-color: #4a2277;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        font-size: 17px;
+        font-weight: 450;
+        mat-card-content{
+          text-align: center;
+        }
+      }
+    }
+    .cards-overlay:hover {
+      transform: scale(1.1);
+    }
+  }
+
+}
+
+@media screen and (min-width: 381px) and (max-width: 720px)  {
+  .body-container{
+    height: 100%;
+    justify-content: center;
+  }
+
+.card-container{
+  display: flex;
+  padding: 30px 50px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  .cards-overlay{
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    width: 575px;
+    height: 150px;
+    padding: 13px 13px;
+    mat-card{
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #1c0522);
+      background-color: #4a2277;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-size: 17px;
+      font-weight: 450;
+      mat-card-content{
+        text-align: center;
+      }
+    }
+  }
+  .cards-overlay:hover {
+    transform: scale(1.1);
+  }
+}
+
 }
