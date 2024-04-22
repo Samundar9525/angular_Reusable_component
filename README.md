@@ -26,6 +26,8 @@
 ![image](https://github.com/Samundar9525/angular_Reusable_component/assets/71628177/49b87b18-cadf-4322-bae0-7a3d337b87ed)
 
 
+# demo : https://samundar9525.github.io/angular_Reusable_component
+
 
 
 
